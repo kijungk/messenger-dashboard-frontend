@@ -1,0 +1,33 @@
+<div class="page">
+  <div class="page-container">
+    <div id="events">
+      <div *ngIf="event | async as event" id="event">
+        <img src={{event.url}} alt={{event.description}} id="event-image">
+        <div id="title-container">
+          <div class="oswald">
+            {{event.description}}
+          </div>
+          <div class="roboto">
+            Dashboard
+          </div>
+        </div>
+      </div>
+      <div id="menu">
+        <div class="card" *ngIf="administrator.permission === 'superuser'" (click)="open('broadcast')">
+          <i class="fas fa-bullhorn"></i>
+          <div class="oswald">
+            Push Notification
+          </div>
+        </div>
+        <div class="card" *ngIf="menuController.ordersMenu" (click)="open('orders')">
+          <i class="fas fa-cash-register"></i>
+          <div class="oswald">
+            Orders
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-orders *ngIf="controller.orders"></app-orders>
+  <app-broadcast *ngIf="controller.broadcast"></app-broadcast>
+</div>

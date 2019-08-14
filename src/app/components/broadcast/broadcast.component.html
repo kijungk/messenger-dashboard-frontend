@@ -1,0 +1,10 @@
+<div class="modal">
+  <div class="modal-container">
+    <div class="modal-title oswald">BROADCAST</div>
+    <div class="broadcast oswald">
+      <textarea placeholder="Input broadcast message" cols="45" rows="20" [(ngModel)]="text"></textarea>
+      <div class="broadcast-send" (click)="sendBroadcast($event)">SEND</div>
+    </div>
+    <div class="modal-close oswald" (click)="close($event)">CLOSE</div>
+  </div>
+</div>

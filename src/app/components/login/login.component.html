@@ -1,0 +1,19 @@
+<div class="modal">
+  <div class="modal-container">
+    <div class="modal-title oswald">LOGIN</div>
+    <div class="login oswald" *ngIf="!controller.login">
+      <input type="text" [(ngModel)]="user.username" placeholder="username">
+      <input type="password" [(ngModel)]="user.password" placeholder="password">
+      <div class="login-button" (click)="login($event)">LOGIN</div>
+    </div>
+    <div class="loggedin oswald" *ngIf="controller.login">
+      <div class="oswald">
+        Welcome {{administrator.username}}! If you'd like to login to another account. Please logout first.
+      </div>
+      <div class="button-container">
+        <div class="confirm-button" (click)="close($event)">CONTINUE</div>
+        <div class="logout-button" (click)="logout($event)">LOGOUT</div>
+      </div>
+    </div>
+  </div>
+</div>

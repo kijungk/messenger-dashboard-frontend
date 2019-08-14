@@ -1,0 +1,21 @@
+<div class="page">
+  <div class="page-container">
+    <div id="home">
+      <div class="oswald">
+        Welcome!
+      </div>
+      <div class="roboto">
+        Please select an event. If no events are available, contact administrator for access.
+      </div>
+      <div id="events-container">
+        <div class="event event" *ngFor="let event of events | async" (click)="navigateTo(event.id)">
+          <img src={{event.url}} alt={{event.description}} class="event-icon">
+          <div class="roboto">
+            {{ event.description }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-login *ngIf="controller.login"></app-login>
+</div>

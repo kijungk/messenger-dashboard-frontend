@@ -1,0 +1,74 @@
+<div class="modal">
+  <div class="modal-container">
+    <div class="modal-title oswald">ORDERS</div>
+
+
+    <div class="order-container-wrapper">
+
+      <div class="order-container">
+        <div class="oswald">NEW</div>
+        <div class="order oswald" *ngFor="let order of incomingOrders | async">
+          <div class="order-inner-wrapper">
+            <div class="order-id">
+              {{order.id}}
+            </div>
+            <div class="order-time">
+              {{order.created_at}}
+            </div>
+          </div>
+          <div class="order-inner-wrapper">
+            <div class="order-description">
+              {{order.description}}
+            </div>
+            <i class="fas fa-check order-complete-icon" (click)="processOrderHandler($event)"></i>
+            <i class="fas fa-ban order-cancel-icon" (click)="cancelOrderHandler($event)"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-container">
+        <div class="oswald">IN PROGRESS</div>
+        <div class="order oswald" *ngFor="let order of processedOrders | async">
+          <div class="order-inner-wrapper">
+            <div class="order-id">
+              {{order.id}}
+            </div>
+            <div class="order-time">
+              {{order.created_at}}
+            </div>
+          </div>
+          <div class="order-inner-wrapper">
+            <div class="order-description">
+              {{order.description}}
+            </div>
+            <i class="fas fa-check order-complete-icon" (click)="completeOrderHandler($event)"></i>
+            <i class="fas fa-ban order-cancel-icon" (click)="cancelOrderHandler($event)"></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-container">
+        <div class="oswald">COMPLETED</div>
+        <div class="order oswald" *ngFor="let order of completedOrders | async">
+          <div class="order-inner-wrapper">
+            <div class="order-id">
+              {{order.id}}
+            </div>
+            <div class="order-time">
+              {{order.created_at}}
+            </div>
+          </div>
+          <div class="order-inner-wrapper">
+            <div class="order-description">
+              {{order.description}}
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="modal-close oswald" (click)="close($event)">CLOSE</div>
+  </div>
+</div>
